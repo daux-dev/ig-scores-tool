@@ -1,0 +1,11 @@
+{
+  "p1_name": "Player 1",
+  "p1_score": "1",
+  "p2_score": "2",
+  "p2_name": "Player 2",
+  "p1_next": "Player 3",
+  "p2_next": "Player 4",
+  "commentary": "COM1 & COM2",
+  "max_score": "3",
+  "stage_desc": "GRAND FINAL"
+}

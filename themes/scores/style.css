@@ -1,0 +1,98 @@
+:root {
+    --name: white;
+    --score: white;
+    --namesize: 34;
+    --scoresize: 34;
+}
+
+body {
+    margin: 0;
+    font-family: "Impact";
+    font-weight: bold;
+    font-style: normal;
+    text-shadow: 0px 0px 6px black, 0px 0px 6px black;
+}
+
+.p1_name {
+    position: absolute;
+    text-align: center;
+    left: 364px;
+    top: 7px;
+    width: 480px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--name);
+    font-size: var(--namesize);
+    /* font-weight: bold; */
+    /* background-color: pink; */
+}
+
+.p1_score {
+    text-align: center;
+    position: absolute;
+    left: 834px;
+    top: 7px;
+    width: 60px;
+    overflow: hidden;
+    color: var(--score);
+    font-size: var(--scoresize);
+    font-style: normal;
+    /* font-family: "Destroy"; */
+    /* font-weight: bold; */
+    /* background-color: red; */
+}
+
+.p2_score {
+    text-align: center;
+    position: absolute;
+    right: 834px;
+    top: 7px;
+    width: 60px;
+    overflow: hidden;
+    color: var(--score);
+    font-size: var(--scoresize);
+    font-style: normal;
+    /* font-family: "Destroy"; */
+    /* font-weight: bold; */
+    /* background-color: blue; */
+}
+
+
+.p2_name {
+    position: absolute;
+    text-align: center;
+    right: 364px;
+    top: 7px;
+    width: 480px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--name);
+    font-size: var(--namesize);
+    /* font-weight: bold; */
+    /* background-color: cyan; */
+}
+
+.format {
+    text-align: center;
+    color: var(--name);
+    font-size: 34;
+    margin: 0 auto;
+    margin-top: 7px;
+    width: 140px;
+    font-style: normal;
+    /* background-color: blue; */
+}
+
+.stage_desc {
+    color: white;
+    font-family: "Impact";
+    font-size: 34px;
+    /* margin: 0 auto; */
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 140px;
+    line-height: 34px;
+    text-shadow: 0 0 6px black, 0 0 6px black;
+}
+
