@@ -20,3 +20,10 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+#char_quote {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 128px;
+}

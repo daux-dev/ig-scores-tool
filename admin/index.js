@@ -18,12 +18,15 @@ $( () => {
             }));
         });
 
+        /* add characters to p1 and p2 char selector */
         data.chars.forEach(char => {
-            // console.log(charset);
-            $(".chars").append($("<option>", {
-                value: char,
-                text: char.split(".")[0]
-            }));
+            const fileExtension = char.split(".")[char.split(".").length - 1];
+            if (fileExtension == "png" || fileExtension == "jpg") { //only add if file extension is png/jpg to exclude quote.txt files     
+                $(".chars").append($("<option>", {
+                    value: char,
+                    text: char.split(".")[0]
+                }));
+            }
         });
 
         Object.entries(data).forEach(keyValuePair => {

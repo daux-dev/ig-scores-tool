@@ -1,5 +1,6 @@
 $( () => {
 
+    /* returns path to winning players character */
     const getWinnerImg = (data) => {
         if (data.p1_score >= data.p2_score) {
             return "chars/" + data.charset_selected + "/" + data.p1_char;
@@ -10,8 +11,16 @@ $( () => {
 
     /* FIRST DATA LOAD */
     $.getJSON("/data", data => {       
-        // console.log(getWinnerImg(data));
+        /* switching character image to that of winning player */
         $("#img_winner_char").css("background-image", "url(/" + getWinnerImg(data) + ")");
+
+        /* reading text file containing character quotes based on image file name e.g. millia.png => millia.png.txt */
+        $.get("/" + getWinnerImg(data) + ".txt", function(txt) {
+            const quotes = txt.split(/\r?\n/); //split txt by newline into quotes array
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]; //select a random quote
+            $("#char_quote").text(randomQuote); //changing character quote to random quote from the text file
+            console.log(txt.split(/\r?\n/));
+        }, 'text');
 
 
 
@@ -63,9 +72,20 @@ $( () => {
     /* DATA UPDATE POLLING */
     setInterval(() => {
         $.getJSON("/data", data => {
-            /* change background image if  */
+            /* change character image and quote if change is detected  */
             if ($("#img_winner_char").css("background-image") != 'url("http://localhost:3000/' + getWinnerImg(data) + '")') {
                 $("#img_winner_char").css("background-image", "url(/" + getWinnerImg(data) + ")");
+
+                /* reset character quote to blank in case no quote file is found/available to remove old quote */
+                $("#char_quote").text("");
+
+                /* reading text file containing character quotes based on image file name e.g. millia.png => millia.png.txt */
+                $.get("/" + getWinnerImg(data) + ".txt", function(txt) {
+                    const quotes = txt.split(/\r?\n/); //split txt by newline into quotes array
+                    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]; //select a random quote
+                    $("#char_quote").text(randomQuote); //changing character quote to random quote from the text file
+                    console.log(txt.split(/\r?\n/));
+                }, 'text');
             }
 
 
