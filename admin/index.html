@@ -27,55 +27,32 @@
 
             <div class="row scores">
                 <h2>SCOREBOARD</h2>
-                <div class="col-1">
+                <div class="input-group">
+
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="player1Selection" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                        <button class="btn dropdown-toggle p1toggle" type="button" id="player1Selection" data-bs-toggle="dropdown" aria-expanded="false"></button>
                         <ul class="dropdown-menu playerSelect1" aria-labelledby="dropdownMenuButton1"></ul>
-                      </div>
-                </div>
-                <div class="col">
-                  <input name="p1_name" type="text" class="form-control" id="p1_name" placeholder="PLAYER 1" aria-label="Player 1">
-                </div>
-                <div class="col-1">
+                    </div>
+
+                    <input name="p1_name" type="text" class="form-control" id="p1_name" placeholder="PLAYER 1" aria-label="Player 1">
+
                     <input name="p1_score" type="number" class="form-control" id="p1_score">
-                </div>
-                <div class="col-2 desktop-button">
+
                     <button type="submit" class="btn btn-primary desktop-button">Update</button>
-                </div>
-                <div class="col-1">
+
                     <input name="p2_score" type="number" class="form-control" id="p2_score">
-                </div>
-                <div class="col">
-                  <input name="p2_name" type="text" class="form-control" id="p2_name" placeholder="PLAYER 2" aria-label="Player 2">
-                </div>
-                <div class="col-1">
+
+                    <input name="p2_name" type="text" class="form-control" id="p2_name" placeholder="PLAYER 2" aria-label="Player 2">
+
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="player2Selection" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                        <button class="btn dropdown-toggle p2toggle" type="button" id="player2Selection" data-bs-toggle="dropdown" aria-expanded="false"></button>
                         <ul class="dropdown-menu playerSelect2" aria-labelledby="dropdownMenuButton1"></ul>
-                      </div>
+                    </div>
+                    
                 </div>
             </div>
 
-            <!-- <div class="row nextup">
-                <h2>PLAYERS</h2>
-                <div class="col">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="player1Selection" data-bs-toggle="dropdown" aria-expanded="false">></button>
-                        <ul class="dropdown-menu playerSelect1" aria-labelledby="dropdownMenuButton1"></ul>
-                      </div>
-                </div>
-                <div class="col-6">
-                    
-                </div>
-                <div class="col-1">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="player2Selection" data-bs-toggle="dropdown" aria-expanded="false"><</button>
-                        <ul class="dropdown-menu playerSelect2" aria-labelledby="dropdownMenuButton1"></ul>
-                      </div>
-                </div>
-            </div> -->
-
-            <div class="row nextup">
+            <div class="row">
                 <h2>CHARACTERS</h2>
                 <div class="col">
                     <select name="p1_char" class="form-control chars" id="p1_char" aria-label="char player 1">
@@ -92,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="row nextup">
+            <div class="row">
                 <h2>NEXT UP</h2>
                 <div class="col">
                   <input name="p1_next" type="text" class="form-control" id="p1_next" placeholder="NEXT UP P1" aria-label="next player 1">
