@@ -1,11 +1,14 @@
 {
-  "p1_name": "Player 1",
-  "p1_score": "1",
-  "p2_score": "2",
-  "p2_name": "Player 2",
-  "p1_next": "Player 3",
-  "p2_next": "Player 4",
-  "commentary": "COM1 & COM2",
+  "p1_name": "daux",
+  "p1_score": "18",
+  "p2_score": "19",
+  "p2_name": "blue",
+  "p1_char": "chipp.png",
+  "p2_char": "millia.png",
+  "p1_next": "Blue",
+  "p2_next": "Kingcar",
+  "commentary": "Jazzboi & Honkkok",
   "max_score": "3",
-  "stage_desc": "GRAND FINAL"
+  "stage_desc": "GRAND FINAL",
+  "charset_selected": "ggst"
 }

@@ -21,7 +21,7 @@
 
             <div class="row">
                 <div class="col">
-                    <button type="submit" class="btn btn-primary mobile-button">Submit</button>
+                    <button type="submit" class="btn btn-primary mobile-button">Update</button>
                 </div>
             </div>
 
@@ -34,13 +34,30 @@
                     <input name="p1_score" type="number" class="form-control" id="p1_score">
                 </div>
                 <div class="col-2 desktop-button">
-                    <button type="submit" class="btn btn-primary desktop-button">Submit</button>
+                    <button type="submit" class="btn btn-primary desktop-button">Update</button>
                 </div>
                 <div class="col-2">
                     <input name="p2_score" type="number" class="form-control" id="p2_score">
                 </div>
                 <div class="col">
                   <input name="p2_name" type="text" class="form-control" id="p2_name" placeholder="PLAYER 2" aria-label="Player 2">
+                </div>
+            </div>
+
+            <div class="row nextup">
+                <h2>CHARACTERS</h2>
+                <div class="col">
+                    <select name="p1_char" class="form-control chars" id="p1_char" aria-label="char player 1">
+                        <option value="">--</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <!-- <button type="button" class="btn btn-warning" id="next_btn">Next</button> -->
+                </div>
+                <div class="col">
+                    <select name="p2_char" class="form-control chars" id="p2_char" aria-label="char player 2">
+                        <option value="">--</option>
+                    </select>
                 </div>
             </div>
 
@@ -74,6 +91,13 @@
                 <div class="col-2">
                     <label for="stage_desc">STAGE DESC</label>
                     <input name="stage_desc" type="text" class="form-control" id="stage_desc">
+                </div>
+
+                <div class="col-2">
+                    <label for="stage_desc">CHARACTER SET</label>
+                    <select name="charset_selected" class="form-control" id="charset_selected">
+
+                    </select>
                 </div>
             </div>
                   

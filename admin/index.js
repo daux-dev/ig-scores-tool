@@ -8,9 +8,28 @@ $( () => {
       });
 
     $.getJSON("/data", data => {
+        console.log(data);
+
+        data.charsets_available.forEach(charset => {
+            console.log(charset);
+            $("#charset_selected").append($("<option>", {
+                value: charset,
+                text: charset
+            }));
+        });
+
+        data.chars.forEach(char => {
+            // console.log(charset);
+            $(".chars").append($("<option>", {
+                value: char,
+                text: char.split(".")[0]
+            }));
+        });
+
         Object.entries(data).forEach(keyValuePair => {
             $("#" + keyValuePair[0]).val(keyValuePair[1]);
         });
+
     });
 
     $("#next_btn").click(() => {
@@ -36,12 +55,16 @@ $( () => {
     });
 
     $("#player_swap_btn").click(() => {
-        const tempP = $("#p1_name").val();
+        let temp = $("#p1_name").val();
         $("#p1_name").val($("#p2_name").val());
-        $("#p2_name").val(tempP);
+        $("#p2_name").val(temp);
 
-        const tempS = $("#p1_score").val();
+        temp = $("#p1_score").val();
         $("#p1_score").val($("#p2_score").val());
-        $("#p2_score").val(tempS);
+        $("#p2_score").val(temp);
+
+        temp = $("#p1_char").val();
+        $("#p1_char").val($("#p2_char").val());
+        $("#p2_char").val(temp);
     });
 });
