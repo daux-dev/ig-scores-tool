@@ -1,3 +1,5 @@
+
+
 $( () => {
     $(window).keydown(function(event){
         if(event.keyCode == 13) {
@@ -10,6 +12,7 @@ $( () => {
     $.getJSON("/data", data => {
         console.log(data);
 
+        /* add charsets to selector */
         data.charsets_available.forEach(charset => {
             console.log(charset);
             $("#charset_selected").append($("<option>", {
@@ -33,7 +36,20 @@ $( () => {
             $("#" + keyValuePair[0]).val(keyValuePair[1]);
         });
 
+        /* read players.txt in root and add to dropdowns */
+        $.get("/players.txt", function(txt) {
+            // console.log(txt);
+            const players = txt.split(/\r?\n/);
+            console.log(players);
+            players.forEach(player => {
+                $(".playerSelect1").append($('<li><button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP1">' + player + '</button></li>'));
+                $(".playerSelect2").append($('<li><button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP2">' + player + '</button></li>'));
+
+            });
+        }, 'text');
+
     });
+
 
     $("#next_btn").click(() => {
         if ($("#p1_next").val() && $("#p2_next").val()) {
@@ -71,3 +87,12 @@ $( () => {
         $("#p2_char").val(temp);
     });
 });
+
+function setPlayer(el) {
+    console.log(el);
+    if($(el).hasClass("choiceP1")) {
+        $("#p1_name").val(el.innerText);
+    } else if ($(el).hasClass("choiceP2")) {
+        $("#p2_name").val(el.innerText);
+    };
+};

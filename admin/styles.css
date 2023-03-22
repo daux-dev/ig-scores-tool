@@ -2,8 +2,7 @@ body {
     background-image: linear-gradient(0deg, rgb(50, 50, 50), rgb(0, 0, 50));
     color: white;
     text-align: center;
-    text-shadow: 0 0 8px black;
-    
+    /* text-shadow: 0 0 8px black; */
 }
 
 input {
@@ -21,11 +20,11 @@ input {
     width: 25%;
 } */
 
-.nextup {
+/* .nextup {
     background-color: none;
     padding-bottom: 2%;
     margin: 2% auto;
-}
+} */
 
 .commentary {
     /* background-color: rgba(0, 0, 0, 0.2); */
