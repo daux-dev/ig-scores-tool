@@ -2,7 +2,6 @@ body {
     background-image: linear-gradient(0deg, rgb(50, 50, 50), rgb(0, 0, 50));
     color: white;
     text-align: center;
-    /* text-shadow: 0 0 8px black; */
 }
 
 input {
@@ -20,11 +19,11 @@ input {
     width: 25%;
 } */
 
-/* .nextup {
+.nextup {
     background-color: none;
     padding-bottom: 2%;
     margin: 2% auto;
-} */
+}
 
 .commentary {
     /* background-color: rgba(0, 0, 0, 0.2); */
@@ -42,12 +41,12 @@ input {
     height: 2.375rem;
 }
 
-.p1toggle {
+.p1toggle, .p1ntoggle {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-.p2toggle {
+.p2toggle, .p2ntoggle {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }

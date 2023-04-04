@@ -44,6 +44,8 @@ $( () => {
             players.forEach(player => {
                 $(".playerSelect1").append($('<li><button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP1">' + player + '</button></li>'));
                 $(".playerSelect2").append($('<li><button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP2">' + player + '</button></li>'));
+                $(".playerSelect1Next").append($('<li><button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP1Next">' + player + '</button></li>'));
+                $(".playerSelect2Next").append($('<li><button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP2Next">' + player + '</button></li>'));
 
             });
         }, 'text');
@@ -94,5 +96,9 @@ function setPlayer(el) {
         $("#p1_name").val(el.innerText);
     } else if ($(el).hasClass("choiceP2")) {
         $("#p2_name").val(el.innerText);
+    } else if ($(el).hasClass("choiceP1Next")) {
+        $("#p1_next").val(el.innerText);
+    } else if ($(el).hasClass("choiceP2Next")) {
+        $("#p2_next").val(el.innerText);
     };
 };
