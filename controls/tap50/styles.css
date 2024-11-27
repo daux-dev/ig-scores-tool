@@ -11,6 +11,16 @@ body {
     height: 90%;
 }
 
+.p1_side:active {
+    background-color: darkred;
+    transition: all 0.1s;
+}
+
+.p2_side:active {
+    background-color: darkblue;
+    transition: all 0.1s;
+}
+
 .p1_side {
     left: 0;
     background-color: red;
