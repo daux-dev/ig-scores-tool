@@ -1,0 +1,101 @@
+@font-face {
+    font-family: "GerwinCustom";
+    src: url("../bluesgeilesfont.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "GerwinCustomXXXtreme";
+    src: url("../bluesextremesfont.otf") format("opentype");
+}
+
+body {
+    color: white;
+    margin: 3px;
+    font-family: "GerwinCustomXXXtreme";
+    font-size: 72px;
+    background-image: url("scoreboard.png"), url("iglogo.png");
+}
+
+.p1_name {
+    position: absolute;
+    text-align: center;
+    left: 280px;
+    top: 5px;
+    width: 430px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 28px;
+    /* background-color: pink; */
+}
+
+.p1_score {
+    text-align: center;
+    position: absolute;
+    left: 750px;
+    top: 4px;
+    width: 70px;
+    font-size: 32px;
+    font-style: normal;
+    /* background-color: red; */
+}
+
+.p2_score {
+    text-align: center;
+    position: absolute;
+    right: 750px;
+    top: 4px;
+    width: 70px;
+    font-size: 32px;
+    font-style: normal;
+    /* background-color: blue; */
+}
+
+
+.p2_name {
+    position: absolute;
+    text-align: center;
+    right: 280px;
+    top: 5px;
+    width: 430px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 28px;
+    /* background-color: cyan; */
+}
+
+.stage_desc, .format {
+    font-family: "GerwinCustomXXXtreme";
+    font-size: 28px;
+    text-align: center;
+    position: absolute;
+    width: 220px;
+    text-transform: uppercase;
+    left: 850px;
+    top: 7px;
+    /* background-color: red; */
+}
+
+.commentaryBar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:  url("casters.png");
+    /* background-color: pink; */
+}
+
+.commentary {
+    font-size: 26px;
+    text-align: left;
+    position: absolute;
+    left: 40px;
+    bottom: -2px;
+    opacity: 0.9;
+    /* background-color: blue; */
+}
+
+/* .format {
+    top: 32px;
+    width: 216px;
+    left: 852px;
+    background-color: purple;
+} */

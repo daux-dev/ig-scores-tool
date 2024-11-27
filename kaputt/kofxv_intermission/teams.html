@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOFXV Teams</title>
+</head>
+<body>
+    <div class="team1">
+        <h1>BOOMER</h1>
+    </div>
+
+    <div class="team2">
+        <h1>ZOOMER</h1>
+    </div>
+</body>
+
+<script>
+    let team1 = ["thatChimera"];
+    let team2 = [ "Dai", "Zer0q"];
+
+    team1.forEach(name => {
+        let entry = document.createElement("div");
+        entry.classList.add("name");
+        entry.setAttribute("id", name);
+        entry.appendChild(document.createTextNode(name));
+        document.querySelector(".team1").appendChild(entry);
+    });
+
+    team2.forEach(name => {
+        let entry = document.createElement("div");
+        entry.classList.add("name");
+        entry.setAttribute("id", name);
+        entry.appendChild(document.createTextNode(name));
+        document.querySelector(".team2").appendChild(entry);
+    });
+
+    document.querySelectorAll(".name").forEach(item => {
+        item.addEventListener("click", el => {
+            let targetPlayer = document.querySelector("#" + el.target.id);
+            if (!targetPlayer.classList.contains("win") && !targetPlayer.classList.contains("lose")) {
+                targetPlayer.classList.add("win");
+            } else if (targetPlayer.classList.contains("win")) {
+                targetPlayer.classList.remove("win");
+                targetPlayer.classList.add("lose");
+            } else if (targetPlayer.classList.contains("lose")) {
+                targetPlayer.classList.remove("lose");
+            }
+    });
+        
+    });
+    
+</script>
+
+<style>
+    body {
+        color: white;
+        margin: 0;
+        font-family: "Impact";
+        font-weight: normal;
+        font-style: normal;
+        display: flex;
+        flex-direction: row;
+        /* text-shadow: 0px 0px 6px black; */
+    }
+
+    .team1, .team2 {
+        color: #2de0a8;
+        /* font-size: 54px; */
+        text-align: center;
+        width: 100%;
+        margin: 60px;
+        margin-top: 360px;
+        flex-direction: column;
+    }
+
+    h1 {
+        line-height: 54px;
+        font-size: 72px;
+    }
+
+    /* .team1 {
+        background-color: rgba(255, 0, 0, 0.5);
+    }
+
+    .team2 {
+        background-color: rgba(0, 0, 255, 0.5);
+    } */
+
+    .name {
+        font-size: 72px;
+        color: white;
+        user-select: none;
+        border-bottom: 4px solid white;
+    }
+
+    .lose {
+        color: red;
+    }
+
+    .win {
+        color: greenyellow;
+    }
+
+    /* .team1 .win::after {
+        content: "🟢";
+    } */
+</style>
+</html>

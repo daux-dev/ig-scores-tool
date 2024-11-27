@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>LUMINA WEEKLY CASTER</title>
+    <script src="./../../libs/jquery-3.6.0.min.js"></script>
+    <script src="./../../libs/gsap.min.js"></script>
+</head>
+<body>
+        <div class="commentary scroller"></div>
+        <div class="caster1"></div>     <div class="caster2"></div>
+
+    <script src="./caster.js"></script>
+</body>
+
+<style>
+    .caster1, .caster2 {
+        position: absolute;
+        bottom: 52px;
+        /* margin: 2% 3% 2% 3%; */
+        font-family: "Lato";
+        color: white;
+        text-align: center;
+        text-shadow: 0px 0px 10px #6ae4ff, 0px 0px 10px #6ae4ff;
+        font-size: 78;
+        font-weight: 400;
+        /* white-space: nowrap; */
+        /* background-color: blue; */
+        width: 800px;
+    }
+
+
+    .caster1 {
+        left: 50px;
+    }
+
+    .caster2 {
+        right: 50px;
+    }
+</style>
+</html>

@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "GerwinCustom";
+    src: url("../bluesgeilesfont.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "GerwinCustomXXXtreme";
+    src: url("../bluesextremesfont.otf") format("opentype");
+}
+
+body {
+    color: white;
+    margin: 0;
+    /* font-family: "Lato"; */
+    font-family: "Univers LT Std";
+    font-style: italic;
+    /* font-weight: 900; */
+}
+
+#img_winner_char {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* background-color: aquamarine; */
+    /* background-position: right; */
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#char_quote {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 128px;
+    display: none;
+}
+
+.playername {
+    position: absolute;
+    top: 644px;
+    right: 114px;
+
+    font-family: "GerwinCustomXXXtreme";
+    font-size: 128px;
+    /* font-weight: 900; */
+    /* font-style: italic; */
+    text-align: right;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 black;
+    /* background-color: magenta; */
+    /* z-index: 1; */
+}
+
+.wintext {
+    position: absolute;
+    top: 768px;
+    right: 114px;
+    font-family: "GerwinCustomXXXtreme";
+    font-size: 102px;
+    text-align: right;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 2px 2px 0 black;
+    /* background-color: magenta; */
+}
+
+.stage_desc1, .stage_desc2 {
+    font-family: "GerwinCustomXXXtreme";
+    font-size: 86px;
+    text-align: right;
+    /* overflow: hidden; */
+    position: absolute;
+    /* height: 20px; */
+    /* width: 232px; */
+    text-transform: uppercase;
+    right: 114px;
+    top: 378px;
+    color: #e20511;
+    text-shadow: 2px 2px 0 black;
+    /* background-color: magenta; */
+}
+
+.stage_desc2 {
+    top: 452px;
+    color: white;
+    /* width: 216px; */
+    /* left: 852px; */
+    /* background-color: purple; */
+}

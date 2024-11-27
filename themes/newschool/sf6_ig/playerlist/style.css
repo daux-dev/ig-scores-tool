@@ -1,0 +1,19 @@
+body {
+    color: white;
+    margin: 0;
+}
+
+.players {
+    position: absolute;
+    margin: 0 auto;
+    width: 78%;
+    right: 135px;
+    top: 306px;
+    
+    font-family: "Univers LT Std";
+    font-size: 48px;
+    font-weight: 900;
+    text-align: justify;
+    font-style: italic;
+    /* background-color: red; */
+}

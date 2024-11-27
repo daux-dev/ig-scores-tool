@@ -1,0 +1,143 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <title>OVERLAY CONTROL</title>
+</head>
+<body>
+    <div id="msg"></div>
+    <h1>IG OVERLAY CONTROL</h1>
+    <div class="container">
+        <form action="/submit" method="POST">
+
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-warning" id="player_swap_btn">Swap</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary mobile-button">Update</button>
+                </div>
+            </div>
+
+            <div class="row scores">
+                <h2>SCOREBOARD</h2>
+                <div class="input-group">
+
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle p1toggle" type="button" id="player1Selection" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                        <ul class="dropdown-menu playerSelect1" aria-labelledby="dropdownMenuButton1"></ul>
+                    </div>
+
+                    <input name="p1_name" type="text" class="form-control w-25" id="p1_name" placeholder="PLAYER 1" aria-label="Player 1">
+
+                    <select name="p1_char" class="form-control chars" id="p1_char" aria-label="char player 1">
+                        <option value="">--</option>
+                    </select>
+
+                    <input name="p1_score" type="number" class="form-control" id="p1_score">
+
+                    <button type="submit" class="btn btn-primary desktop-button">Update</button>
+
+                    <input name="p2_score" type="number" class="form-control" id="p2_score">
+
+                    <select name="p2_char" class="form-control chars" id="p2_char" aria-label="char player 2">
+                        <option value="">--</option>
+                    </select>
+
+                    <input name="p2_name" type="text" class="form-control w-25" id="p2_name" placeholder="PLAYER 2" aria-label="Player 2">
+
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle p2toggle" type="button" id="player2Selection" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                        <ul class="dropdown-menu playerSelect2" aria-labelledby="dropdownMenuButton1"></ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- <div class="row">
+                <h2>CHARACTERS</h2>
+                <div class="col">
+                    <select name="p1_char" class="form-control chars" id="p1_char" aria-label="char player 1">
+                        <option value="">--</option>
+                    </select>
+                </div>
+                <div class="col-6">
+
+                </div>
+                <div class="col">
+                    <select name="p2_char" class="form-control chars" id="p2_char" aria-label="char player 2">
+                        <option value="">--</option>
+                    </select>
+                </div>
+            </div> -->
+
+            <div class="row nextup">
+                <h2>NEXT UP</h2>
+
+                <div class="input-group">
+
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle p1ntoggle" type="button" id="player1SelectionNext" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                        <ul class="dropdown-menu playerSelect1Next" aria-labelledby="dropdownMenuButton3"></ul>
+                    </div>
+
+
+                        <input name="p1_next" type="text" class="form-control" id="p1_next" placeholder="NEXT UP P1" aria-label="next player 1">
+
+
+
+                        <button type="button" class="btn btn-warning" id="next_btn">Next</button>
+
+
+
+                        <input name="p2_next" type="text" class="form-control" id="p2_next" placeholder="NEXT UP P2" aria-label="next player 2">
+
+
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle p2ntoggle" type="button" id="player2SelectionNext" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                        <ul class="dropdown-menu playerSelect2Next" aria-labelledby="dropdownMenuButton4"></ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row commentary">
+                <h2>COMMENTARY</h2>
+                <div class="col">
+                    <input name="commentary" type="text" class="form-control" id="commentary" placeholder="COMMENTARY PLACEHOLDER">
+                </div>
+            </div>
+
+            <div class="row">
+                <h3>VARIOUS SETTINGS</h3>
+                <div class="col-2">
+                    <label for="max_score">MAX SCORE</label>
+                    <input name="max_score" type="number" class="form-control" id="max_score">
+                </div>
+
+                <div class="col-2">
+                    <label for="stage_desc">STAGE DESC</label>
+                    <input name="stage_desc" type="text" class="form-control" id="stage_desc">
+                </div>
+
+                <div class="col-2">
+                    <label for="stage_desc">CHAR SET</label>
+                    <select name="charset_selected" class="form-control" id="charset_selected" onchange="onCharsetChange()">
+                        <option value="off">OFF</option>
+                    </select>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

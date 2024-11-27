@@ -1,0 +1,354 @@
+:root {
+    --name: white;
+    --score: white;
+    --namesize: 30;
+    --scoresize: 64;
+}
+
+body {
+    color: white;
+    margin: 0;
+    font-family: "Arial";
+    font-weight: bold;
+    font-style: italic;
+    /* text-shadow: 0px 0px 6px black; */
+}
+
+.match_info {
+    position: absolute;
+    bottom: 78px;
+    right: 78px;
+    width: 1249px;
+    height: 221px;
+    /* background-color: rgba(172, 255, 47, 0.5); */
+}
+
+.p1_name {
+    /* display: none; */
+    position: absolute;
+    text-align: center;
+    left: 0px;
+    top: 10px;
+    width: 520px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--name);
+    font-size: 72px;
+    /* font-weight: bold; */
+    /* background-color: violet; */
+}
+
+.resultsHeading {
+    position: absolute;
+    width: 485px;
+    text-align: center;
+    font-family: "Teko";
+    font-weight: bold;
+    font-size: 68px;
+    /* background-color: blue; */
+}
+
+.current_match {
+    position: relative;
+    /* background-image: linear-gradient(90deg, red, blue); */
+    height: 100px;
+    width: 1249px;
+    margin-top: 20px;
+}
+
+.p1_info {
+    position: absolute;
+    left: 0;
+    background-image: linear-gradient(90deg, red, purple);
+    width: 610px;
+    height: 100px;
+}
+
+.p2_info {
+    position: absolute;
+    right: 0;
+    background-image: linear-gradient(90deg, purple, blue);
+    width: 610px;
+    height: 100px;
+    /* box-shadow:inset 0 0 0 8px yellow; */
+}
+
+.p1_score {
+    /* display: inline; */
+    text-align: center;
+    position: absolute;
+    left: 520px;
+    top: 0;
+    width: 90px;
+    height: 100px;
+    /* overflow: hidden; */
+    /* color: red; */
+    font-size: 80px;
+    font-style: normal;
+    font-family: "Teko";
+    /* font-weight: bold; */
+    /* background-color: red; */
+    /* box-shadow: 10px 10px 8px black; */
+}
+
+.p2_score {
+    /* display: inline; */
+    text-align: center;
+    position: absolute;
+    right: 520px;
+    top: 0;
+    width: 90px;
+    height: 100px;
+    /* overflow: hidden; */
+    /* color: blue; */
+    font-size: 80px;
+    font-style: normal;
+    font-family: "Teko";
+    /* font-weight: bold; */
+    /* background-color: blue; */
+    /* box-shadow: 10px 10px 8px black; */
+}
+
+.scores {
+    /* background-color: turquoise; */
+    text-align: center;
+    margin-top: 80px;
+    /* background-image: linear-gradient(90deg, red, blue); */
+    /* display: inline-block; */
+}
+
+
+.p2_name {
+    /* display: none; */
+    position: absolute;
+    text-align: center;
+    right: 0;
+    top: 10px;
+    width: 520px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--name);
+    font-size: 68px;
+    /* font-weight: bold; */
+    /* background-color: cyan; */
+}
+
+.p1_next {
+    color: white;
+    display: inline;
+    /* background-color: red; */
+    /* margin-left: 5px; */
+    /* float: left; */
+    /* width: 285px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* color: rgb(255, 90, 90); */
+}
+
+/* .vs {
+    background-color: yellow;
+} */
+
+.vsnext {
+    /* background-image: linear-gradient(120deg, red 50%, blue 50%); */
+    font-size: 32px;
+    margin: 0 12px;
+    /* margin-left: 5px; */
+    font-style: normal;
+    /* float: right; */
+    /* background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: none;
+    color: transparent; */
+}
+
+.p2_next {
+    color: white;
+    display: inline;
+    /* background-color: blue; */
+    /* float: right; */
+    /* width: 285px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* color: rgb(90, 90, 255); */
+}
+
+.nextup {
+    position: absolute;
+    text-align: right;
+    font-size: 44px;
+    /* width: 610px; */
+    bottom: 6px;
+    right: 0;
+    /* border: 2px solid white; */
+    /* background-color: yellow; */
+    /* text-shadow: 0 0 6px black; */
+    /* background-image: linear-gradient(90deg, red,  blue); */
+}
+
+.next_in_line {
+    font-family: "Teko";
+    /* font-style: normal; */
+    font-weight: bold;
+    position: absolute;
+    text-align: left;
+    font-size: 56px;
+    width: 640px;
+    bottom: -10px;
+    /* left: 6px; */
+    /* background-color: violet; */
+}
+
+.next_in_line::before {
+    content: "▶▶|";
+    margin-right: 20px;
+    font-style: normal;
+}
+
+.format_info {
+    display: flex;
+    flex-direction: column;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    color: white;
+    position: absolute;
+    bottom: 78px;
+    left: 78px;
+    width: 485px;
+    height: 407px;
+    /* background-color: white; */
+}
+
+.cta {
+    text-align: center;
+    font-family: "Teko";
+    font-weight: bold;
+    font-style: italic;
+    font-size: 32px;
+}
+
+.cta:before, .cta:after {
+    font-style: normal;
+    content: "🔽";
+    text-shadow: none;
+}
+
+.cta:after {
+    margin-left: 6px;
+}
+
+/* .format {
+    background-color: blue;
+} */
+
+.format_label {
+    text-align: center;
+    font-family: "Teko";
+    font-weight: bold;
+    font-style: italic;
+    font-size: 54px;
+    /* margin-top: auto; */
+}
+
+.format_label:before {
+    font-style: normal;
+    content: "📄";
+    text-shadow: none;
+}
+
+.format_name {
+    text-align: center;
+    font-size: 40px;
+}
+
+/* .casters {
+    background-color: palevioletred;
+} */
+
+.commentary_label {
+    /* margin-top: 120px; */
+    /* position: absolute; */
+    text-align: center;
+    font-family: "Teko";
+    font-weight: bold;
+    font-style: italic;
+    font-size: 54px;
+    margin-top: auto;
+    /* background-color: yellow; */
+    /* width: 485px;
+    bottom: 50px; */
+}
+
+.commentary {
+    /* position: absolute; */
+    text-align: center;
+    font-size: 40px;
+    /* margin-top: auto; */
+    /* width: 485px;
+    /* bottom: 0px; */
+    /* left: 320px; */
+    /* background-color: orangered; */
+    /* background-image: linear-gradient(90deg, red,  blue); */
+    /* background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: none;
+    color: transparent; */
+}
+
+.commentary_label:before {
+    font-style: normal;
+    content: "🎤";
+    text-shadow: none;
+}
+
+.winner {
+    font-size: 64px;
+    /* background-color: white; */
+    padding-bottom: 5px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: none;
+    /* color: red; */
+}
+
+.winwhite {
+    background-color: white;
+    margin-top: 10px;
+}
+
+/* .loser {
+    
+} */
+
+.matchState {
+    font-size: 44px;
+    margin-top: 24px;
+    /* background-color: orange; */
+    width: 485px;
+    height: 150px;
+    text-justify: auto;
+}
+
+.match {
+    position: absolute;
+    width: 485px;
+    /* height: 240px; */
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.p1 {
+    color: red;
+}
+
+.p2 {
+    color: blue;
+}
+

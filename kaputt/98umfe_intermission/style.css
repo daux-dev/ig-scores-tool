@@ -1,0 +1,220 @@
+:root {
+    --name: white;
+    --score: white;
+    --namesize: 30;
+    --scoresize: 64;
+}
+
+body {
+    color: white;
+    margin: 0;
+    font-family: "Arial";
+    font-weight: bold;
+    font-style: italic;
+}
+
+.current_match {
+    position: absolute;
+    left: 20px;
+    height: 90px;
+    width: 1180px;
+    font-family: "Lato";
+    font-weight: 900;
+    font-style: italic;
+    text-shadow: 6px 6px 0 black;
+    /* background-color: darkblue; */
+}
+
+.p1_score, .p2_score {
+    position: absolute;
+    top: 5px;
+    width: 10%;
+    height: 100%;
+
+    text-align: center;
+    font-style: normal;
+    font-size: 64px;
+
+    /* background-color: blue; */
+}
+
+.p1_name, .p2_name {
+    position: absolute;   
+    top: 20px;
+    height: 100%;
+    width: 25%;
+
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 42px;
+
+    /* background-color: red; */
+}
+
+.p1_score {
+    left: 35%;
+    /* color: red; */
+}
+
+.p2_score {
+    right: 35%;
+    /* color: blue; */
+}
+
+.p1_name {
+    left: 10%;
+}
+
+.p2_name {
+    right: 10%;
+}
+
+.scorediv {
+    position: absolute;
+    top: 4px;
+    left: 45%;
+    width: 10%;
+    text-align: center;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 64px;
+    /* background-color: blueviolet; */
+}
+
+.p1_next {
+    /* color: white; */
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vsnext {
+    /* font-size: 20px; */
+    margin: 0 12px;
+    /* font-style: normal; */
+}
+
+.p2_next {
+    /* color: white; */
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.next_match {
+    position: absolute;
+    display: flex;
+    flex-flow: row;
+    justify-content: start;
+    left: 15px;
+    bottom: 23px;
+    /* background-color: royalblue; */
+    width: 1200px;
+    color: black;
+}
+
+.nextup {
+    text-align: left;
+    font-size: 42px;
+    line-height: 42px;
+    margin-top: 8px;
+    margin-left: 40px;
+    font-family: "Lato";
+    font-weight: 900;
+    font-style: italic;
+    padding-top: 2px;
+    /* background-color: rebeccapurple; */
+    width: 700px;
+    white-space: nowrap;
+}
+
+.next_in_line {
+    font-family: "Raleway";
+    font-weight: 900;
+    font-style: normal;
+    text-align: left;
+    font-size: 67px;
+    line-height: 67px;
+}
+
+.next_in_line::after {
+    content: url(./assets/g1423.png);
+    margin-left: 10px;
+    width: 48px;
+    height: 48px;
+    font-style: normal;
+}
+
+.cta {
+    text-align: center;
+    font-family: "Teko";
+    font-weight: bold;
+    font-style: italic;
+    font-size: 32px;
+    line-height: 32px;
+    /* background-color: seagreen; */
+    /* height: 60px; */
+    /* width: 40%; */
+}
+
+.commentary_box {
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    bottom: 490px;
+    right: 30px;
+    width: 640px;
+    /* height: 140px; */
+    /* background-color: pink; */
+}
+
+.format_name {
+    line-height: 42px;
+    text-align: center;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 56px;
+    color: white;
+    margin-bottom: 50px;
+    /* background-color: blueviolet; */
+}
+
+.commentary_label {
+    text-align: center;
+    font-size: 78px;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 900;
+    line-height: 78px;
+    margin-bottom: 10px;
+    color: #ff7aa1;
+}
+
+.commentary {
+    font-family: "Lato";
+    font-weight: 900;
+    font-style: italic;
+    text-align: center;
+    font-size: 44px;
+}
+
+/* .commentary::before, .commentary::after {
+    content: "🎤";
+    font-style: normal;
+    font-size: 54px;
+} */
+
+.red {
+    color: yellow;
+}
+
+.blu {
+    color: yellow;
+}
+

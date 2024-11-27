@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <style media="screen">
+            a:visited {
+              color: blue;
+            }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <h1>scoreboard links</h1>
+        <hr />
+        <h2><a href="/controls/default">DEFAULT CONTROL PANEL</a></h2>
+        <h3>theme links</h3>
+        <ul id="themesList">
+
+        </ul>
+
+        <script src="/js/jquery.js"></script>
+        <script type="text/javascript">
+            $( () => {
+                $.getJSON("/data", data => {
+                    if (data.themes) {
+                        const themes = data.themes;
+                        themes.forEach((item) => {
+                            console.log(item);
+                            $("#themesList").append("<li><a href='" + item + "'>" + item + "</a></li>");
+                        });
+
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

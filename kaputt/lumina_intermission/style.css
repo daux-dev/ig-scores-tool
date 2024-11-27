@@ -1,0 +1,198 @@
+:root {
+    --name: white;
+    --score: white;
+    --namesize: 30;
+    --scoresize: 64;
+}
+
+body {
+    color: white;
+    margin: 0;
+    font-family: "Lato";
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 0px 0px 10px #6ae4ff;
+}
+
+/* .list_all {
+
+} */
+
+.p1_info, .p2_info {
+    width: 47%;
+    padding: 1%;
+    float: left;
+}
+
+.p2_info {
+    float: right;
+}
+
+.current_scores {
+    /* background-color: purple; */
+    line-height: 110px;
+}
+
+.p1_score, .p2_score {
+    text-align: center;
+    width: 47%;
+    font-size: 124px;
+    font-style: normal;
+    font-weight: 900;
+    font-family: "Lato";
+    /* background-color: red; */
+    float: left;
+}
+
+.p2_score {
+    float: right;
+}
+
+.p1_name, .p2_name {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.p1_next {
+    color: white;
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vsnext {
+    /* font-size: 20px;
+    margin: 0 12px; */
+    margin: 12px;
+    /* background-color: black; */
+    border: 2px solid white;
+    font-style: normal;
+}
+
+.p2_next {
+    color: white;
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.preordained {
+    text-align: center;
+    font-size: 54px;
+    font-family: "Source Serif Pro";
+    font-style: italic;
+    text-shadow: 0px 0px 10px #6ae4ff, 0px 0px 10px #6ae4ff;
+}
+
+.nextup {
+    text-align: center;
+    font-size: 54px;
+    /* background-color: rebeccapurple; */
+    /* width: 78%; */
+    padding-top: 2px;
+    /* float: right; */
+}
+
+.next_in_line {
+    font-family: "Lato";
+    font-weight: bold;
+    text-align: left;
+    font-size: 56px;
+    /* background-color: violet; */
+    width: 22%;
+    float: left;
+}
+
+/* .next_in_line::before {
+    content: "▶▶|";
+    margin-right: 10px;
+    font-style: normal;
+} */
+
+.verdict {
+    text-align: center;
+    font-family: "Source Serif Pro";
+    font-weight: normal;
+    font-style: normal;
+    margin-bottom: 24px;
+    font-size: 72px;
+    line-height: 72px;
+    margin-bottom: -20px;
+    text-shadow: 0px 0px 10px #6ae4ff, 0px 0px 10px #6ae4ff;
+}
+
+.match_info {
+    display: flex;
+    flex-direction: column;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    color: white;
+    position: absolute;
+    bottom: 26px;
+    right: 40px;
+    width: 900px;
+    height: 504px;
+    /* background-color: rgba(0, 162, 255, 0.76); */
+}
+
+.format_info {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    bottom: 570px;
+    left: 40px;
+    width: 900px;
+    height: 180px;
+    /* background-color:black; */
+    /* text-shadow: 1px 1px 8px #b1f6ff; */
+}
+
+.cta {
+    text-align: center;
+    font-family: "Source Serif Pro";
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 24px;
+    font-size: 72px;
+    line-height: 72px;
+    text-shadow: 0px 0px 10px #6ae4ff, 0px 0px 10px #6ae4ff;
+    /* background-color: seagreen; */
+    /* height: 60px; */
+    /* width: 40%; */
+}
+
+.format_name {
+    text-align: center;
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 58px;
+}
+
+.commentary_label {
+    text-align: center;
+    font-size: 54px;
+    font-family: "Teko";
+    font-weight: bold;
+    line-height: 54px;
+
+}
+
+.commentary {
+    /* position: absolute; */
+    text-align: center;
+    font-size: 44px;
+    /* float: right; */
+    /* width: 100%; */
+    /* background-color: red; */
+    /* padding-top: 10px; */
+}
+
+.win {
+    color: #6ae4ff;
+}

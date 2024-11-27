@@ -1,0 +1,17 @@
+body {
+    color: white;
+    margin: 0;
+}
+
+.countdown {
+    position: absolute;
+    margin: 0 auto;
+    font-family: "Univers LT Std";
+    font-size: 256px;
+    font-weight: 900;
+    bottom: 10px;
+    right: 140px;
+    text-align: right;
+    font-style: italic;
+    /* background-color: red; */
+}

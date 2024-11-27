@@ -14,10 +14,14 @@ app.use('/gsap', express.static(__dirname + '/node_modules/gsap/dist')); // redi
 
 app.use(express.static("./"));
 
-var overlayContent = {};
-var charsets_available = []; 
-var chars = [];
+const port = 3000;
 
+var overlayContent = {};
+var charsets_available = [];
+var chars = [];
+var themes = [];
+
+/* read directories in chars directory on startup */
 fs.readdir(path.join(__dirname, "chars"), (err, files) => {
     if (err) {
         console.log(err);
@@ -26,45 +30,76 @@ fs.readdir(path.join(__dirname, "chars"), (err, files) => {
     }
 });
 
+/* list theme directories for reference purposes*/
+
+const findThemes = (dir, depth) => {
+    fs.readdir(path.join(depth, dir), (err, dirContents) => {
+        if (dirContents) {
+            //console.log(dirContents);
+            if (dirContents.includes("index.html")) {
+                //console.log(path.join(depth, dir));
+                themes.push(path.join(depth, dir).replace(__dirname, "http://localhost:" + port));
+                //console.log(themes);
+            }
+            //if (dirContents.length > 0) {
+                dirContents.forEach((item, i) => {
+                    findThemes(item, path.join(depth, dir));
+                });
+            //}
+        }
+
+    });
+};
+
+findThemes("themes", __dirname);
+
 fs.readFile("./data.json", (err, data) => {
     if (err) {
         console.log(err);
     } else {
         overlayContent = JSON.parse(data);
         overlayContent.charsets_available = charsets_available;
+        overlayContent.themes = themes;
 
-        fs.readdir(path.join(__dirname, "chars", overlayContent.charset_selected), (err, files) => {
-            if (err) {
-                console.log(err);
-            } else {
-                chars = files;
-                overlayContent.chars = chars;
-                // console.log(files);
-            }
-        });
+
+        if (overlayContent.charset_selected != "off") {
+            fs.readdir(path.join(__dirname, "chars", overlayContent.charset_selected), (err, files) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    chars = files;
+                    overlayContent.chars = chars;
+                }
+            });
+        }
 
     }
 });
 
-
+app.post("/test", (req, res) => {
+    console.log(req.body);
+    res.redirect(req.headers.referer);
+})
 
 app.post("/submit", (req, res) => {
-
-    fs.readdir(path.join(__dirname, "chars", req.body.charset_selected), (err, files) => {
-        if (err) {
-            console.log(err);
-        } else {
-            chars = files;
-            // console.log(files);
-        }
-    });
+    /* read selected charset directory if not off*/
+    if (req.body.charset_selected != "off") {
+        fs.readdir(path.join(__dirname, "chars", req.body.charset_selected), (err, files) => {
+            if (err) {
+                console.log(err);
+            } else {
+                chars = files;
+            }
+        });
+    } else {
+        chars = [];
+    }
 
     fs.writeFile("./data.json", JSON.stringify(req.body, null, 2), () => {
-        console.log("DATA: " + JSON.stringify(req.body, null, 2));
-        console.log("REFERER: " + req.headers.referer);
         overlayContent = req.body;
         overlayContent.charsets_available = charsets_available;
         overlayContent.chars = chars;
+        console.log(overlayContent);
         res.redirect(req.headers.referer);
     });
 });
@@ -73,6 +108,21 @@ app.get("/data", (req, res) => {
     res.send(JSON.stringify(overlayContent));
 });
 
-app.listen(3000, () => {
-    console.log("Overlay server running on port 3000");
+// use like this: /getchars/?charset=vf5
+app.get("/getchars", (req, res) => {
+    const charset = req.query.charset;
+    fs.readdir(path.join(__dirname, "chars", charset), (err, files) => {
+        if (err) {
+            console.log(err);
+            res.send(JSON.stringify([]));
+        } else {
+            res.send(JSON.stringify(files));
+        }
+    });
+
+});
+
+app.listen(port, () => {
+    console.log("OVERLAY SERVER ACTIVE");
+    console.log("http://localhost:" + port);
 });

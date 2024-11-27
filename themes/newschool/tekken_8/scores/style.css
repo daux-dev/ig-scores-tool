@@ -1,0 +1,105 @@
+@font-face {
+    font-family: "GerwinCustom";
+    src: url("../bluesgeilesfont.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "GerwinCustomXXXtreme";
+    src: url("../bluesextremesfont.otf") format("opentype");
+}
+
+body {
+    color: white;
+    margin: 3px;
+    /* font-family: "Univers LT Std"; */
+    font-family: "GerwinCustom";
+    font-size: 72px;
+}
+
+.p1_name {
+    position: absolute;
+    text-align: center;
+    left: 342px;
+    top: 5px;
+    width: 470px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 36px;
+    /* font-weight: 900; */
+    /* background-color: pink; */
+}
+
+.p1_score {
+    text-align: center;
+    position: absolute;
+    left: 276px;
+    top: 5px;
+    width: 28px;
+    overflow: hidden;
+    font-size: 36px;
+    font-style: normal;
+    /* font-family: "Destroy"; */
+    /* font-weight: bold; */
+    /* background-color: red; */
+}
+
+.p2_score {
+    text-align: center;
+    position: absolute;
+    right: 279px;
+    top: 5px;
+    width: 28px;
+    overflow: hidden;
+    font-size: 36px;
+    font-style: normal;
+    /* font-family: "Destroy"; */
+    /* font-weight: bold; */
+    /* background-color: blue; */
+}
+
+
+.p2_name {
+    position: absolute;
+    text-align: center;
+    right: 342px;
+    top: 5px;
+    width: 470px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 36px;
+    /* font-weight: bold; */
+    /* background-color: cyan; */
+}
+
+.format {
+    text-align: center;
+    color: var(--name);
+    font-size: 34;
+    margin: 0 auto;
+    margin-top: 7px;
+    width: 140px;
+    font-style: normal;
+    background-color: gold;
+}
+
+.stage_desc1, .stage_desc2 {
+    font-family: "GerwinCustomXXXtreme";
+    font-size: 18px;
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+    height: 20px;
+    width: 232px;
+    text-transform: uppercase;
+    left: 844px;
+    top: 7px;
+    /* background-color: red; */
+}
+
+.stage_desc2 {
+    top: 30px;
+    width: 216px;
+    left: 852px;
+    /* background-color: purple; */
+}
+

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <title>TAP50 CONTROLS</title>
+</head>
+<body>
+    <div class="menubar">
+        <button class="dec" type="button"  name="button" onclick="p1Dec()">-</button>
+        <button class="fullscreenButton" type="button" name="button" onclick="toggleFullscreen()">fullscreen</button>
+        <button class="dec" type="button" name="button" onclick="p2Dec()">-</button>
+    </div>
+    <div class="p1_side" onclick="p1Inc()">
+        <div class="p1_name" id="p1_name"></div>
+        <div class="p1_score score" id="p1_score"></div>
+    </div>
+
+    <div class="p2_side" onclick="p2Inc()">
+        <div class="p2_name" id="p2_name"></div>
+        <div class="p2_score score" id="p2_score"></div>
+    </div>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

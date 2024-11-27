@@ -1,0 +1,28 @@
+body {
+    color: white;
+    margin: 0;
+}
+
+.commentator1, .commentator2 {
+    position: absolute;
+    bottom: 5px;
+
+    width: 100%;
+
+    font-family: "Univers LT Std";
+    font-size: 50px;
+    font-weight: 900;
+    font-style: italic;
+    text-align: center;
+
+    width: 960px;
+
+}
+
+.commentator1 {
+    left: 0;
+}
+
+.commentator2 {
+    right: 0;
+}
