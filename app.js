@@ -76,11 +76,6 @@ fs.readFile("./data.json", (err, data) => {
     }
 });
 
-app.post("/test", (req, res) => {
-    console.log(req.body);
-    res.redirect(req.headers.referer);
-})
-
 app.post("/submit", (req, res) => {
     /* read selected charset directory if not off*/
     if (req.body.charset_selected != "off") {
@@ -99,6 +94,7 @@ app.post("/submit", (req, res) => {
         overlayContent = req.body;
         overlayContent.charsets_available = charsets_available;
         overlayContent.chars = chars;
+        overlayContent.themes = themes;
         console.log(overlayContent);
         res.redirect(req.headers.referer);
     });
