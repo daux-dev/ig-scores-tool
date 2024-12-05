@@ -80,8 +80,7 @@ body {
     display: grid;
     grid-template-areas:
     'options'
-    'names'
-    'commentary';
+    'names';
     gap: 10px;
     /* background-color: #2196F3; */
 }
@@ -140,6 +139,7 @@ body {
     grid-template-columns: 80% 20%;
 }
 
-.commentary {
-    grid-area: commentary;
+#commentary {
+    text-align: center;
+    margin-top: 0.25rem;
 }
