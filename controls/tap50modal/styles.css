@@ -143,3 +143,14 @@ body {
     text-align: center;
     margin-top: 0.25rem;
 }
+
+.playerSelectDark {
+    display: block;
+    position: fixed;
+    top:0;
+    z-index: 2;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
