@@ -33,20 +33,37 @@
             </div>
             <div class="names">
                 <div class="name-group-1">
-                    <button class="p1_select" type="button">P1 LIST</button>
+                    <button class="p1_select" type="button" onclick="openP1List()">P1 LIST</button>
                     <input name="p1_name" type="text" class="p1_name" id="p1_name" placeholder="PLAYER 1" aria-label="Player 1">
                 </div>
                 <div class="name-group-2">
                     <input name="p2_name" type="text" class="p2_name" id="p2_name" placeholder="PLAYER 2" aria-label="Player 2">
-                    <button class="p2_select" type="button">P2 LIST</button>
+                    <button class="p2_select" type="button" onclick="openP2List()">P2 LIST</button>
                 </div>
-                <input type="text" name="" id="commentary" placeholder="COMMENTARY">
+                <!-- <input type="text" name="" id="commentary" placeholder="COMMENTARY"> -->
             </div>
         </div>
     </div>
 
     <div class="playerSelectDark">
+        <div class="playerSelect1">
+            <div class="playerSelectHeader">
+                <h1>PICK PLAYER 1</h1>
+                <button type="button" name="button" onclick="closePlayerSelect()">close</button>
+            </div>
+            <div class="namesList1">
 
+            </div>
+        </div>
+        <div class="playerSelect2">
+            <div class="playerSelectHeader">
+                <h1>PICK PLAYER 2</h1>
+                <button type="button" name="button" onclick="closePlayerSelect()">close</button>
+            </div>
+            <div class="namesList2">
+
+            </div>
+        </div>
     </div>
 
     <script src="/js/jquery.js"></script>

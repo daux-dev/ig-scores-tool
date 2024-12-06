@@ -145,7 +145,7 @@ body {
 }
 
 .playerSelectDark {
-    display: block;
+    display: none;
     position: fixed;
     top:0;
     z-index: 2;
@@ -153,4 +153,36 @@ body {
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+}
+
+.playerSelect1, .playerSelect2 {
+    display: none;
+    background-color: red;
+    position: absolute;
+    border-radius: 10px;
+    padding: 1%;
+    top: 2%;
+    left: 1%;
+    width: 98%;
+    font-size: 5vw;
+}
+
+.playerSelect2 {
+    background-color: blue;
+}
+
+.namesList1, .namesList2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.playerSelectHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+
+.choiceP1, .choiceP2 {
+    margin: 0.5%;
 }

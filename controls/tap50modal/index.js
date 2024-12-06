@@ -85,10 +85,30 @@ function closeMenu() {
     menu.style.display = "none";
 }
 
+function closePlayerSelect() {
+    $(".playerSelectDark").hide();
+    $(".playerSelect1").hide();
+    $(".playerSelect2").hide();
+}
+
 window.onclick = function(event) {
     if (event.target == menu) {
         menu.style.display = "none";
     }
+
+    if (event.target == document.querySelector(".playerSelectDark")) {
+        document.querySelector(".playerSelectDark").style.display = "none";
+    }
+}
+
+function openP1List() {
+    $(".playerSelectDark").show();
+    $(".playerSelect1").show();
+}
+
+function openP2List() {
+    $(".playerSelectDark").show();
+    $(".playerSelect2").show();
 }
 
 /* read players.txt in root and add to dropdowns */
@@ -97,8 +117,10 @@ $.get("/players.txt", function(txt) {
     const players = txt.split(/\r?\n/);
     console.log(players);
     players.forEach(player => {
-        $(".playerSelect1").append($('<button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP1">' + player + '</button>'));
-        $(".playerSelect2").append($('<button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP2">' + player + '</button>'));
+        if (player.length > 0) {
+            $(".namesList1").append($('<button type="button" onclick="setPlayer(this)" class="choiceP1">' + player + '</button>'));
+            $(".namesList2").append($('<button type="button" onclick="setPlayer(this)" class="choiceP2">' + player + '</button>'));
+        }
     });
 }, 'text');
 
@@ -109,4 +131,7 @@ function setPlayer(el) {
     } else if ($(el).hasClass("choiceP2")) {
         $("#p2_name").val(el.innerText);
     };
+    $(".playerSelectDark").hide();
+    $(".playerSelect1").hide();
+    $(".playerSelect2").hide();
 };
