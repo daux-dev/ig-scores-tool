@@ -100,15 +100,27 @@ body {
     color: white;
 }
 
-.fullscreenButton {
-    background-color: steelblue;
-    color: white;
-}
 
 .options {
     grid-area: options;
     display: grid;
     grid-template-columns: 32% 36% 32%;
+}
+
+.options2 {
+    /* grid-area: options; */
+    margin-top: 1%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+/* .options2 > button {
+    background-color: gold;
+} */
+
+.fullscreenButton {
+    background-color: steelblue;
+    color: white;
 }
 
 .p1_name {

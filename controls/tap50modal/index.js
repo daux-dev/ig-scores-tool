@@ -50,9 +50,13 @@ function sendAll() {
     $.getJSON("/data", data => {
         data.p1_name = $("#p1_name").val();
         data.p2_name = $("#p2_name").val();
+        data.p1_score = $("#p1_score").text();
+        data.p2_score = $("#p2_score").text();
         $.post("/submit", data, () => {
             $("#p1_name_d").text(data.p1_name);
             $("#p2_name_d").text(data.p2_name);
+            $("#p1_score").text(data.p1_score)
+            $("#p2_score").text(data.p2_score)
         })
     })
 }
@@ -109,6 +113,15 @@ function openP1List() {
 function openP2List() {
     $(".playerSelectDark").show();
     $(".playerSelect2").show();
+}
+
+function setMaxScore() {
+
+}
+
+function resetScores() {
+    $("#p1_score").text(0);
+    $("#p2_score").text(0);
 }
 
 /* read players.txt in root and add to dropdowns */
