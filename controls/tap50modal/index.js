@@ -4,6 +4,7 @@ $( () => {
         $("#p2_name_d").text(data.p2_name);
         $("#p1_score").text(data.p1_score);
         $("#p2_score").text(data.p2_score);
+        $(".ft-btn").text("FT" + data.max_score);
         Object.entries(data).forEach(keyValuePair => {
             $("#" + keyValuePair[0]).val(keyValuePair[1]);
         });
@@ -52,11 +53,12 @@ function sendAll() {
         data.p2_name = $("#p2_name").val();
         data.p1_score = $("#p1_score").text();
         data.p2_score = $("#p2_score").text();
+        data.max_score = parseInt($(".ft-btn").text().split("FT")[1]);
         $.post("/submit", data, () => {
             $("#p1_name_d").text(data.p1_name);
             $("#p2_name_d").text(data.p2_name);
-            $("#p1_score").text(data.p1_score)
-            $("#p2_score").text(data.p2_score)
+            // $("#p1_score").text(data.p1_score)
+            // $("#p2_score").text(data.p2_score)
         })
     })
 }
@@ -116,6 +118,14 @@ function openP2List() {
 }
 
 function setMaxScore() {
+    const current_score = parseInt($(".ft-btn").text().split("FT")[1]); // get current max_score value from button text
+    const scores = [1,2,3,4,5,10,20]; //list of allowed max_score values
+    const current_index = scores.findIndex(i => {return i == current_score});
+    if (current_index >= scores.length - 1) {
+        $(".ft-btn").text("FT" + 1);
+    } else {
+        $(".ft-btn").text("FT" + scores[current_index + 1]);
+    }
 
 }
 
