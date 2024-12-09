@@ -1,4 +1,8 @@
 $( () => {
+    setupAll();
+});
+
+function setupAll() {
     $.getJSON("/data", data => {
         $("#p1_name_d").text(data.p1_name);
         $("#p2_name_d").text(data.p2_name);
@@ -9,7 +13,7 @@ $( () => {
             $("#" + keyValuePair[0]).val(keyValuePair[1]);
         });
     });
-});
+}
 
 function p1Inc() {
     $.getJSON("/data", data => {
@@ -48,6 +52,7 @@ function p2Dec() {
 }
 
 function sendAll() {
+    animateUpdate(false);
     $.getJSON("/data", data => {
         data.p1_name = $("#p1_name").val();
         data.p2_name = $("#p2_name").val();
@@ -89,6 +94,8 @@ openMenu();
 
 function closeMenu() {
     menu.style.display = "none";
+    animateUpdate(false);
+    setupAll();
 }
 
 function closePlayerSelect() {
@@ -100,6 +107,8 @@ function closePlayerSelect() {
 window.onclick = function(event) {
     if (event.target == menu) {
         menu.style.display = "none";
+        animateUpdate(false);
+        setupAll();
     }
 
     if (event.target == document.querySelector(".playerSelectDark")) {
@@ -118,6 +127,7 @@ function openP2List() {
 }
 
 function setMaxScore() {
+    animateUpdate(true);
     const current_score = parseInt($(".ft-btn").text().split("FT")[1]); // get current max_score value from button text
     const scores = [1,2,3,4,5,10,20]; //list of allowed max_score values
     const current_index = scores.findIndex(i => {return i == current_score});
@@ -129,9 +139,18 @@ function setMaxScore() {
 
 }
 
+function animateUpdate(bool) {
+    if (bool) {
+        $(".updateButton").css("animation", "pulse 1s infinite");
+    } else if (!bool) {
+        $(".updateButton").css("animation", "none");
+    }
+}
+
 function resetScores() {
     $("#p1_score").text(0);
     $("#p2_score").text(0);
+    animateUpdate(true);
 }
 
 /* read players.txt in root and add to dropdowns */
@@ -157,4 +176,5 @@ function setPlayer(el) {
     $(".playerSelectDark").hide();
     $(".playerSelect1").hide();
     $(".playerSelect2").hide();
+    animateUpdate(true);
 };

@@ -34,11 +34,10 @@
             <div class="names">
                 <div class="name-group-1">
                     <button class="p1_select" type="button" onclick="openP1List()">P1 LIST</button>
-                    <input name="p1_name" type="text" class="p1_name" id="p1_name" placeholder="PLAYER 1" aria-label="Player 1">
+                    <input oninput="animateUpdate(true)" type="text" class="p1_name" id="p1_name" placeholder="PLAYER 1">
                 </div>
                 <div class="name-group-2">
-                    <input name="p2_name" type="text" class="p2_name" id="p2_name" placeholder="PLAYER 2" aria-label="Player 2">
-                    <button class="p2_select" type="button" onclick="openP2List()">P2 LIST</button>
+                    <input oninput="animateUpdate(true)" type="text" class="p2_name" id="p2_name" placeholder="PLAYER 2">                  <button class="p2_select" type="button" onclick="openP2List()">P2 LIST</button>
                 </div>
                 <!-- <input type="text" name="" id="commentary" placeholder="COMMENTARY"> -->
                 <div class="options2">

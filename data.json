@@ -19,10 +19,10 @@
     "vf5"
   ],
   "themes": [
+    "http://localhost:3000/themes/generic/scores",
+    "http://localhost:3000/themes/testing/chartest",
     "http://localhost:3000/themes/testing/intermission",
     "http://localhost:3000/themes/testing/scores",
-    "http://localhost:3000/themes/testing/chartest",
-    "http://localhost:3000/themes/generic/scores",
     "http://localhost:3000/themes/newschool/default/casters",
     "http://localhost:3000/themes/newschool/default/countdown",
     "http://localhost:3000/themes/newschool/default/creditlist",
@@ -30,13 +30,6 @@
     "http://localhost:3000/themes/newschool/default/players",
     "http://localhost:3000/themes/newschool/default/scores",
     "http://localhost:3000/themes/newschool/default/winner",
-    "http://localhost:3000/themes/newschool/ggst_bf2/casters",
-    "http://localhost:3000/themes/newschool/ggst_bf2/countdown",
-    "http://localhost:3000/themes/newschool/ggst_bf2/creditlist",
-    "http://localhost:3000/themes/newschool/ggst_bf2/playerlist",
-    "http://localhost:3000/themes/newschool/ggst_bf2/players",
-    "http://localhost:3000/themes/newschool/ggst_bf2/scores",
-    "http://localhost:3000/themes/newschool/ggst_bf2/winner",
     "http://localhost:3000/themes/newschool/sf6_ig/casters",
     "http://localhost:3000/themes/newschool/sf6_ig/countdown",
     "http://localhost:3000/themes/newschool/sf6_ig/creditlist",
@@ -50,6 +43,13 @@
     "http://localhost:3000/themes/newschool/tekken_8/playerlist",
     "http://localhost:3000/themes/newschool/tekken_8/players",
     "http://localhost:3000/themes/newschool/tekken_8/scores",
-    "http://localhost:3000/themes/newschool/tekken_8/winner"
+    "http://localhost:3000/themes/newschool/tekken_8/winner",
+    "http://localhost:3000/themes/newschool/ggst_bf2/casters",
+    "http://localhost:3000/themes/newschool/ggst_bf2/creditlist",
+    "http://localhost:3000/themes/newschool/ggst_bf2/playerlist",
+    "http://localhost:3000/themes/newschool/ggst_bf2/players",
+    "http://localhost:3000/themes/newschool/ggst_bf2/countdown",
+    "http://localhost:3000/themes/newschool/ggst_bf2/scores",
+    "http://localhost:3000/themes/newschool/ggst_bf2/winner"
   ]
 }
