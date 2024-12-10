@@ -222,3 +222,7 @@ body {
     padding: 0 0.5%;
     font-size: 3vw;
 }
+
+.supersmall {
+    font-size: 2vw;
+}

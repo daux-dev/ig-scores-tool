@@ -9,6 +9,10 @@ function setupAll() {
         $("#p1_score").text(data.p1_score);
         $("#p2_score").text(data.p2_score);
         $(".ft-btn").text("FT" + data.max_score);
+        $(".reset-scores-btn").text(data.p1_score + ":" + data.p2_score + "➡0:0");
+        if ($(".reset-scores-btn").text() == "0:0➡0:0") {
+            $(".reset-scores-btn").text("0:0");
+        }
         Object.entries(data).forEach(keyValuePair => {
             $("#" + keyValuePair[0]).val(keyValuePair[1]);
         });
@@ -59,6 +63,7 @@ function sendAll() {
         data.p1_score = $("#p1_score").text();
         data.p2_score = $("#p2_score").text();
         data.max_score = parseInt($(".ft-btn").text().split("FT")[1]);
+        closeMenu();
         $.post("/submit", data, () => {
             $("#p1_name_d").text(data.p1_name);
             $("#p2_name_d").text(data.p2_name);
@@ -89,6 +94,7 @@ const menu = document.querySelector(".menu");
 
 function openMenu() {
     menu.style.display = "block";
+    setupAll();
 }
 openMenu();
 
@@ -142,14 +148,17 @@ function setMaxScore() {
 function animateUpdate(bool) {
     if (bool) {
         $(".updateButton").css("animation", "pulse 1s infinite");
+        $(".closeButton").html("close <span class='supersmall'>(reset changes)</span>");
     } else if (!bool) {
         $(".updateButton").css("animation", "none");
+        $(".closeButton").text("close");
     }
 }
 
 function resetScores() {
     $("#p1_score").text(0);
     $("#p2_score").text(0);
+    $(".reset-scores-btn").text("0:0")
     animateUpdate(true);
 }
 
