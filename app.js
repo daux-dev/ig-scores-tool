@@ -26,7 +26,7 @@ fs.readdir(path.join(__dirname, "chars"), (err, files) => {
     if (err) {
         console.log(err);
     } else {
-        charsets_available = files;
+        charsets_available = files.filter(e => {return e != ".gitkeep"});
     }
 });
 
