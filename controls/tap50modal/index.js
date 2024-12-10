@@ -178,3 +178,14 @@ function setPlayer(el) {
     $(".playerSelect2").hide();
     animateUpdate(true);
 };
+
+function consoleShow(text) {
+        if (!text) {
+            $(".console").html("<span style='color: lime'>[SEND]</span> to \
+                 apply changes. <span style='color: red'>[close]</span> to \
+                 revert changes.");
+        } else {
+            $(".console").html(text);
+        }
+    $(".console").show().delay(4000).fadeOut(0);
+}
