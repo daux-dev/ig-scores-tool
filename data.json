@@ -18,10 +18,10 @@
     "vf5"
   ],
   "themes": [
-    "http://localhost:3000/themes/generic/scores",
     "http://localhost:3000/themes/testing/chartest",
     "http://localhost:3000/themes/testing/intermission",
     "http://localhost:3000/themes/testing/scores",
+    "http://localhost:3000/themes/generic/scores",
     "http://localhost:3000/themes/newschool/default/casters",
     "http://localhost:3000/themes/newschool/default/countdown",
     "http://localhost:3000/themes/newschool/default/creditlist",

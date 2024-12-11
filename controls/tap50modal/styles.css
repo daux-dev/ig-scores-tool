@@ -35,6 +35,7 @@ body {
     font-size: 6vw;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     /* background-color: gold; */
 }
 
