@@ -63,8 +63,8 @@ function sendAll() {
         data.p1_score = $("#p1_score").text();
         data.p2_score = $("#p2_score").text();
         data.max_score = parseInt($(".ft-btn").text().split("FT")[1]);
-        closeMenu();
         $.post("/submit", data, () => {
+            closeMenu();
             $("#p1_name_d").text(data.p1_name);
             $("#p2_name_d").text(data.p2_name);
             // $("#p1_score").text(data.p1_score)
