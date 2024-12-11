@@ -1,101 +1,179 @@
-
-
 $( () => {
-    $(window).keydown(function(event){
-        if(event.keyCode == 13) {
-          event.preventDefault();
-          $("#msg").text("ENTER DISABLED, CLICK UPDATE.").removeClass("ok").addClass("err").slideDown().delay(1500).slideUp();
-          return false;
-        }
-      });
+    setupAll();
+});
 
+function setupAll() {
     $.getJSON("/data", data => {
-        console.log(data);
-
-        /* add charsets to selector */
-        data.charsets_available.forEach(charset => {
-            console.log(charset);
-            $("#charset_selected").append($("<option>", {
-                value: charset,
-                text: charset
-            }));
-        });
-
-        /* add characters to p1 and p2 char selector if charset_selected is not off*/
-        if (data.charset_selected != "off") {
-            data.chars.forEach(char => {
-                const fileExtension = char.split(".")[char.split(".").length - 1];
-                if (fileExtension == "png" || fileExtension == "jpg") { //only add if file extension is png/jpg to exclude quote.txt files
-                    $(".chars").append($("<option>", {
-                        value: char,
-                        text: char.split(".")[0]
-                    }));
-                }
-            });
-        };
-
-        /* hide stuff based on selections */
-        if (data.charset_selected == "off") {
-            $(".chars").hide();
+        $("#p1_name_d").text(data.p1_name);
+        $("#p2_name_d").text(data.p2_name);
+        $("#p1_score").text(data.p1_score);
+        $("#p2_score").text(data.p2_score);
+        $(".ft-btn").text("FT" + data.max_score);
+        $(".reset-scores-btn").text(data.p1_score + ":" + data.p2_score + "➡0:0");
+        if ($(".reset-scores-btn").text() == "0:0➡0:0") {
+            $(".reset-scores-btn").text("0:0");
         }
-
         Object.entries(data).forEach(keyValuePair => {
             $("#" + keyValuePair[0]).val(keyValuePair[1]);
         });
-
-        /* read players.txt in root and add to dropdowns */
-        $.get("/players.txt", function(txt) {
-            // console.log(txt);
-            const players = txt.split(/\r?\n/);
-            console.log(players);
-            players.forEach(player => {
-                $(".playerSelect1").append($('<li><button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP1">' + player + '</button></li>'));
-                $(".playerSelect2").append($('<li><button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP2">' + player + '</button></li>'));
-                $(".playerSelect1Next").append($('<li><button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP1Next">' + player + '</button></li>'));
-                $(".playerSelect2Next").append($('<li><button type="button" onclick="setPlayer(this)" class="dropdown-item choiceP2Next">' + player + '</button></li>'));
-
-            });
-        }, 'text');
-
     });
+}
+
+function p1Inc() {
+    $.getJSON("/data", data => {
+        data.p1_score = parseInt(data.p1_score, 10) + 1;
+        $.post("/submit", data, () => {
+            $("#p1_score").text(data.p1_score);
+        })
+    })
+}
+
+function p2Inc() {
+    $.getJSON("/data", data => {
+        data.p2_score = parseInt(data.p2_score, 10) + 1;
+        $.post("/submit", data, () => {
+            $("#p2_score").text(data.p2_score);
+        })
+    })
+}
+
+function p1Dec() {
+    $.getJSON("/data", data => {
+        data.p1_score = parseInt(data.p1_score, 10) - 1;
+        $.post("/submit", data, () => {
+            $("#p1_score").text(data.p1_score);
+        })
+    })
+}
+
+function p2Dec() {
+    $.getJSON("/data", data => {
+        data.p2_score = parseInt(data.p2_score, 10) - 1;
+        $.post("/submit", data, () => {
+            $("#p2_score").text(data.p2_score);
+        })
+    })
+}
+
+function sendAll() {
+    animateUpdate(false);
+    $.getJSON("/data", data => {
+        data.p1_name = $("#p1_name").val();
+        data.p2_name = $("#p2_name").val();
+        data.p1_score = $("#p1_score").text();
+        data.p2_score = $("#p2_score").text();
+        data.max_score = parseInt($(".ft-btn").text().split("FT")[1]);
+        closeMenu();
+        $.post("/submit", data, () => {
+            $("#p1_name_d").text(data.p1_name);
+            $("#p2_name_d").text(data.p2_name);
+            // $("#p1_score").text(data.p1_score)
+            // $("#p2_score").text(data.p2_score)
+        })
+    })
+}
 
 
-    $("#next_btn").click(() => {
-        if ($("#p1_next").val() && $("#p2_next").val()) {
-            if (parseInt($("#p1_score").val()) >= parseInt($("#max_score").val()) || parseInt($("#p2_score").val()) >= parseInt($("#max_score").val())) {
-                console.log(parseInt($("#p1_score").val())+parseInt($("#p1_score").val()));
-                $("#p1_name").val($("#p1_next").val());
-                $("#p2_name").val($("#p2_next").val());
-                $("#p1_score").val(0);
-                $("#p2_score").val(0);
-                $("#p1_next").val("");
-                $("#p2_next").val("");
+const elem = document.querySelector("body");
 
-                $("#msg").text("MATCH PREPARED").removeClass("err").addClass("ok").slideDown().delay(1500).slideUp();
-            } else {
-                $("#msg").text("WIN SCORE NOT REACHED.").removeClass("ok").addClass("err").slideDown().delay(1500).slideUp();
-            }
+function toggleFullscreen() {
+    if (document.fullscreenElement == null) {
+        if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+        }// else if (elem.webkitRequestFullscreen) { /* Safari */
+        // elem.webkitRequestFullscreen();
+        // } else if (elem.msRequestFullscreen) { /* IE11 */
+        // elem.msRequestFullscreen();
+        //}
+    } else if (document.fullscreenElement != null){
+        document.exitFullscreen();
+    }
+}
 
-        } else {
-            $("#msg").text("NEXT PLAYERS NOT SET").removeClass("ok").addClass("err").slideDown().delay(1500).slideUp();
+const menu = document.querySelector(".menu");
+
+function openMenu() {
+    menu.style.display = "block";
+    setupAll();
+}
+openMenu();
+
+function closeMenu() {
+    menu.style.display = "none";
+    animateUpdate(false);
+    setupAll();
+}
+
+function closePlayerSelect() {
+    $(".playerSelectDark").hide();
+    $(".playerSelect1").hide();
+    $(".playerSelect2").hide();
+}
+
+window.onclick = function(event) {
+    if (event.target == menu) {
+        menu.style.display = "none";
+        animateUpdate(false);
+        setupAll();
+    }
+
+    if (event.target == document.querySelector(".playerSelectDark")) {
+        document.querySelector(".playerSelectDark").style.display = "none";
+    }
+}
+
+function openP1List() {
+    $(".playerSelectDark").show();
+    $(".playerSelect1").show();
+}
+
+function openP2List() {
+    $(".playerSelectDark").show();
+    $(".playerSelect2").show();
+}
+
+function setMaxScore() {
+    animateUpdate(true);
+    const current_score = parseInt($(".ft-btn").text().split("FT")[1]); // get current max_score value from button text
+    const scores = [1,2,3,4,5,10,20]; //list of allowed max_score values
+    const current_index = scores.findIndex(i => {return i == current_score});
+    if (current_index >= scores.length - 1) {
+        $(".ft-btn").text("FT" + 1);
+    } else {
+        $(".ft-btn").text("FT" + scores[current_index + 1]);
+    }
+
+}
+
+function animateUpdate(bool) {
+    if (bool) {
+        $(".updateButton").css("animation", "pulse 1s infinite");
+        $(".closeButton").html("close <span class='supersmall'>(reset changes)</span>");
+    } else if (!bool) {
+        $(".updateButton").css("animation", "none");
+        $(".closeButton").text("close");
+    }
+}
+
+function resetScores() {
+    $("#p1_score").text(0);
+    $("#p2_score").text(0);
+    $(".reset-scores-btn").text("0:0")
+    animateUpdate(true);
+}
+
+/* read players.txt in root and add to dropdowns */
+$.get("/players.txt", function(txt) {
+    // console.log(txt);
+    const players = txt.split(/\r?\n/);
+    console.log(players);
+    players.forEach(player => {
+        if (player.length > 0) {
+            $(".namesList1").append($('<button type="button" onclick="setPlayer(this)" class="choiceP1">' + player + '</button>'));
+            $(".namesList2").append($('<button type="button" onclick="setPlayer(this)" class="choiceP2">' + player + '</button>'));
         }
-
     });
-
-    $("#player_swap_btn").click(() => {
-        let temp = $("#p1_name").val();
-        $("#p1_name").val($("#p2_name").val());
-        $("#p2_name").val(temp);
-
-        temp = $("#p1_score").val();
-        $("#p1_score").val($("#p2_score").val());
-        $("#p2_score").val(temp);
-
-        temp = $("#p1_char").val();
-        $("#p1_char").val($("#p2_char").val());
-        $("#p2_char").val(temp);
-    });
-});
+}, 'text');
 
 function setPlayer(el) {
     console.log(el);
@@ -103,35 +181,20 @@ function setPlayer(el) {
         $("#p1_name").val(el.innerText);
     } else if ($(el).hasClass("choiceP2")) {
         $("#p2_name").val(el.innerText);
-    } else if ($(el).hasClass("choiceP1Next")) {
-        $("#p1_next").val(el.innerText);
-    } else if ($(el).hasClass("choiceP2Next")) {
-        $("#p2_next").val(el.innerText);
     };
+    $(".playerSelectDark").hide();
+    $(".playerSelect1").hide();
+    $(".playerSelect2").hide();
+    animateUpdate(true);
 };
 
-function onCharsetChange() {
-    const charset = $("#charset_selected").val();
-    $("#p1_char").find('option').not(':first').remove();
-    $("#p2_char").find('option').not(':first').remove();
-    if (charset == "off") {
-        $("#p1_char").val("");
-        $("#p2_char").val("");
-        $("#p1_char").hide();
-        $("#p2_char").hide();
-    } else {
-        $("#p1_char").show();
-        $("#p2_char").show();
-        $.getJSON("/getchars/?charset=" + charset, chars => {
-            chars.forEach(char => {
-                const fileExtension = char.split(".")[char.split(".").length - 1];
-                if (fileExtension == "png" || fileExtension == "jpg") { //only add if file extension is png/jpg to exclude quote.txt files
-                    $(".chars").append($("<option>", {
-                        value: char,
-                        text: char.split(".")[0]
-                    }));
-                }
-            });
-        });
-    }
+function consoleShow(text) {
+        if (!text) {
+            $(".console").html("<span style='color: lime'>[SEND]</span> to \
+                 apply changes. <span style='color: red'>[close]</span> to \
+                 revert changes.");
+        } else {
+            $(".console").html(text);
+        }
+    $(".console").show().delay(4000).fadeOut(0);
 }
