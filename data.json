@@ -1,14 +1,12 @@
 {
-  "p1_name": "Sensei_Enrique",
   "p1_char": "",
   "p1_score": "21",
   "p2_score": "19",
   "p2_char": "",
-  "p2_name": "Mr_Mantis765",
   "p1_next": "Kingcar",
   "p2_next": "daux",
-  "commentary": "Jazzboi & Kingcar",
-  "max_score": "10",
+  "commentary": "",
+  "max_score": "20",
   "stage_desc": "FREE PLAY",
   "charset_selected": "off",
   "charsets_available": [
@@ -44,11 +42,13 @@
     "http://localhost:3000/themes/newschool/sf6_ig/scores",
     "http://localhost:3000/themes/newschool/sf6_ig/winner",
     "http://localhost:3000/themes/newschool/tekken_8/casters",
-    "http://localhost:3000/themes/newschool/tekken_8/creditlist",
     "http://localhost:3000/themes/newschool/tekken_8/countdown",
+    "http://localhost:3000/themes/newschool/tekken_8/creditlist",
     "http://localhost:3000/themes/newschool/tekken_8/playerlist",
     "http://localhost:3000/themes/newschool/tekken_8/players",
     "http://localhost:3000/themes/newschool/tekken_8/scores",
     "http://localhost:3000/themes/newschool/tekken_8/winner"
-  ]
+  ],
+  "p1_name": "Sensei_Enrique",
+  "p2_name": "Mr_Mantis765"
 }

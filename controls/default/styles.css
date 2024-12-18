@@ -1,37 +1,45 @@
+:root {
+    --p1-bg-color: red;
+    --p1-bg-color-darker: hsl(from var(--p1-bg-color) h s calc(l - 20));
+
+    --p2-bg-color: blue;
+    --p2-bg-color-darker: hsl(from var(--p2-bg-color) h s calc(l - 20));
+}
+
 body {
     font-family: sans-serif;
     text-align: center;
     color: white;
 }
 
-.p1_side, .p2_side {
+.p1Side, .p2Side {
     position: absolute;
     top: 10%;
     width: 50%;
     height: 90%;
 }
 
-.p1_side:active {
-    background-color: darkred;
+.p1Side:active {
+    background-color: var(--p1-bg-color-darker);
     transition: all 0.1s;
 }
 
-.p2_side:active {
-    background-color: darkblue;
+.p2Side:active {
+    background-color: var(--p2-bg-color-darker);
     transition: all 0.1s;
 }
 
-.p1_side {
+.p1Side {
     left: 0;
-    background-color: red;
+    background-color: var(--p1-bg-color);
 }
 
-.p2_side {
+.p2Side {
     right: 0;
-    background-color: blue;
+    background-color: var(--p2-bg-color);
 }
 
-.p1_name_d, .p2_name_d {
+.p1NameDisplay, .p2NameDisplay {
     font-size: 6vw;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -39,11 +47,11 @@ body {
     /* background-color: gold; */
 }
 
-.p1_score, .p2_score {
+.p1Score, .p2Score {
     font-size: 18vw;
 }
 
-.menubar {
+.menuBar {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,7 +62,11 @@ body {
     font-size: 4vh;
 }
 
-.menu {
+.menuBar > button {
+
+}
+
+.mainMenuBackground {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -68,9 +80,7 @@ body {
     font-size: 4vw;
 }
 
-.menuContent {
-    /* background-image: linear-gradient(0deg, rgb(0, 0, 50), rgb(0, 0, 100)); */
-    /* background-image: linear-gradient(270deg, rgb(0, 0, 255), rgb(255, 0, 0)); */
+.mainMenuContent {
     background-color: lightgray;
     position: absolute;
     border-radius: 10px;
@@ -78,12 +88,6 @@ body {
     top: 2%;
     left: 1%;
     width: 98%;
-    display: grid;
-    grid-template-areas:
-    'options'
-    'names';
-    gap: 10px;
-    /* background-color: #2196F3; */
 }
 
 .listButtons {
@@ -91,12 +95,12 @@ body {
     grid-template-columns: auto auto;
 }
 
-.closeButton {
+.closeBtn {
     background-color: red;
     color: white;
 }
 
-.updateButton {
+.updateBtn {
     background-color: forestgreen;
     /* animation: pulse 1s infinite; */
     color: white;
@@ -113,14 +117,13 @@ body {
 
 
 .options {
-    grid-area: options;
+    /* grid-area: options; */
     display: grid;
     grid-template-columns: 32% 36% 32%;
 }
 
 .options2 {
-    /* grid-area: options; */
-    margin-top: 1%;
+    margin-top: 0.25rem;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
 }
@@ -129,35 +132,35 @@ body {
     background-color: gold;
 } */
 
-.fullscreenButton {
+.fullscreenBtn {
     background-color: steelblue;
     color: white;
 }
 
-.p1_name {
+.p1Name {
     padding-left: 0.5em;
 }
 
-.p2_name {
+.p2Name {
     text-align: right;
     padding-right: 0.5em;
 }
 
-.p1_select, .p2_select {
+.p1SelBtn, .p2SelBtn {
     background-color: gold;
 }
 
-.names {
-    grid-area: names;
+.players {
     display: grid;
     grid-template-columns: auto;
+    margin-top: 0.25rem;
 }
 
-.name-group-1 {
+.p1Group {
     display: grid;
     grid-template-columns: 20% 80%;
 }
-.name-group-2 {
+.p2Group {
     display: grid;
     grid-template-columns: 80% 20%;
 }
@@ -167,7 +170,7 @@ body {
     margin-top: 0.25rem;
 }
 
-.playerSelectDark {
+.playerSelectBackground {
     display: none;
     position: fixed;
     top:0;
@@ -179,9 +182,9 @@ body {
     overflow: auto;
 }
 
-.playerSelect1, .playerSelect2 {
+.p1SelectMenu, .p2SelectMenu {
     display: none;
-    background-color: red;
+    background-color: var(--p1-bg-color);
     position: absolute;
     border-radius: 10px;
     padding: 1%;
@@ -191,11 +194,11 @@ body {
     font-size: 5vw;
 }
 
-.playerSelect2 {
-    background-color: blue;
+.p2SelectMenu {
+    background-color: var(--p2-bg-color);
 }
 
-.namesList1, .namesList2 {
+.playerList1, .playerList2 {
     display: flex;
     flex-wrap: wrap;
 }
@@ -210,7 +213,7 @@ body {
     margin: 0.5%;
 }
 
-.console {
+.message {
     display: none;
     position: fixed;
     bottom: 0;
